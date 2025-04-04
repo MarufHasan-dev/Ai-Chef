@@ -12,6 +12,8 @@ export default function Main() {
     "pasta",
   ]);
 
+  const [fetching, setFetching] = React.useState(false);
+
   function addIngredient(formData) {
     if (formData.get("ingredient") === "") {
       return;
@@ -31,7 +33,9 @@ export default function Main() {
   }, [recipe]);
 
   async function getRecipe() {
+    setFetching(true);
     const recipeMarkdown = await getRecipeFromHuggingface(ingredients);
+    setFetching(false);
     setRecipe(recipeMarkdown);
   }
 
@@ -51,6 +55,7 @@ export default function Main() {
           ref={recipeSection}
           ingredients={ingredients}
           getRecipe={getRecipe}
+          fetching={fetching}
         />
       ) : null}
       {recipe ? <ClaudeRecipe recipe={recipe} /> : null}

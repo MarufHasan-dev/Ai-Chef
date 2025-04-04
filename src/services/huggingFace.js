@@ -4,8 +4,6 @@ const SYSTEM_PROMPT = `You are an assistant that receives a list of ingredients 
 
 const hf = new HfInference(import.meta.env.VITE_API_KEY);
 
-// const hf = process.env.REACT_APP_API_KEY;
-
 export async function getRecipeFromHuggingface(ingredientsArr) {
   const ingredientsString = ingredientsArr.join(", ");
   try {

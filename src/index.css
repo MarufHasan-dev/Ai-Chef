@@ -259,3 +259,7 @@ ol {
 .suggested-recipe-container > h4 {
   padding: 10px 0 15px;
 }
+
+.spinner {
+  cursor: progress;
+}
