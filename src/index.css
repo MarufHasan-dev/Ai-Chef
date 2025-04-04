@@ -172,6 +172,35 @@ ol {
 
 .ingredients-list li {
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-icon {
+  width: 15px;
+}
+
+.cross-list {
+  list-style: none;
+}
+
+.cross-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.cross-icon {
+  width: 36px;
 }
 
 .get-recipe-container {
