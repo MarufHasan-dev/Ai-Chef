@@ -1,4 +1,5 @@
 import LoadingGif from "../assets/images/Spinner@1x-1.2s-200px-200px.gif";
+import EditIcon from "../assets/images/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
 
 export default function IngredientsList(props) {
   const ingredientListItems = props.ingredients.map((ingredient) => (
@@ -7,7 +8,13 @@ export default function IngredientsList(props) {
 
   return (
     <section className="ingredients-container container">
-      <h2>Ingredients on hand:</h2>
+      <h2>
+        Ingredients on hand:{" "}
+        <button className="edit-button">
+          <img src={EditIcon} alt="Edit Icon" />
+        </button>
+      </h2>
+
       <ul className="ingredients-list" aria-live="polite">
         {ingredientListItems}
       </ul>

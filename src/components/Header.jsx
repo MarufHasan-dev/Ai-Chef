@@ -37,9 +37,6 @@ export default function Header() {
       <button
         className="darkmode-button"
         onClick={() => setDarkMode((prev) => !prev)}
-        style={{
-          backgroundColor: darkMode ? "#d17557" : "#141413",
-        }}
       >
         <img
           src={darkMode ? LightIcon : DarkIcon}
