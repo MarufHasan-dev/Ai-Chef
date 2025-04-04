@@ -4,9 +4,24 @@ import DarkIcon from "../assets/images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0
 import React from "react";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = React.useState(
-    localStorage.getItem("darkMode") === "true"
-  );
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const [darkMode, setDarkMode] = React.useState(systemPrefersDark);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleChange = (e) => {
+      setDarkMode(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
 
   React.useEffect(() => {
     if (darkMode) {
@@ -14,7 +29,6 @@ export default function Header() {
     } else {
       document.body.classList.remove("dark-mode");
     }
-    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
   return (
     <header className="header">
