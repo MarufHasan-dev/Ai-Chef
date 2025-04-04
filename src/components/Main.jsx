@@ -5,11 +5,11 @@ import { getRecipeFromHuggingface } from "../services/huggingFace";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
-    "chicken",
-    "all the main spices",
-    "corn",
-    "heavy cream",
-    "pasta",
+    // "chicken",
+    // "all the main spices",
+    // "corn",
+    // "heavy cream",
+    // "pasta",
   ]);
 
   const [fetching, setFetching] = React.useState(false);
