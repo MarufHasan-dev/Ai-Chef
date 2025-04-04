@@ -39,12 +39,12 @@ body {
   margin: 0;
   font-family: "Inter", serif;
   background-color: var(--bg-color);
-}
-
-body {
-  background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  cursor: pointer;
 }
 
 ul {
@@ -259,14 +259,3 @@ ol {
 .suggested-recipe-container > h4 {
   padding: 10px 0 15px;
 }
-
-/* ------------- */
-
-/* .get-recipe-button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-}
-
-.get-recipe-button:hover {
-  background-color: #c36b4e;
-} */
