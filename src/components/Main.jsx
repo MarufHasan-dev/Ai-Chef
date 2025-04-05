@@ -5,16 +5,17 @@ import { getRecipeFromHuggingface } from "../services/huggingFace";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([
-    "chicken",
-    "all the main spices",
-    "corn",
-    "heavy cream",
-    "pasta",
+    // "chicken",
+    // "all the main spices",
+    // "corn",
+    // "heavy cream",
+    // "pasta",
   ]);
 
   const [fetching, setFetching] = React.useState(false);
   const [recipe, setRecipe] = React.useState("");
   const recipeSection = React.useRef(null);
+  const [isEditing, setIsEditing] = React.useState(false);
 
   function addIngredient(formData) {
     if (formData.get("ingredient") === "") {
@@ -38,6 +39,10 @@ export default function Main() {
     setRecipe(recipeMarkdown);
   }
 
+  function stopEditing() {
+    setIsEditing((prev) => prev === true && false);
+  }
+
   return (
     <main className="main">
       <form className="add-ingredient-form" action={addIngredient}>
@@ -47,14 +52,18 @@ export default function Main() {
           aria-label="Add ingredient"
           name="ingredient"
         />
-        <button>+ Add ingredient</button>
+        <button onClick={stopEditing}>+ Add ingredient</button>
       </form>
       {ingredients.length > 0 ? (
         <IngredientsList
           ref={recipeSection}
           ingredients={ingredients}
+          setIngredients={setIngredients}
           getRecipe={getRecipe}
           fetching={fetching}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          stopEditing={stopEditing}
         />
       ) : null}
       {recipe ? <ClaudeRecipe recipe={recipe} /> : null}

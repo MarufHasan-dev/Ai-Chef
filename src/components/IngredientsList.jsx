@@ -6,12 +6,14 @@ import CheckIcon from "../assets/images/check_24dp_FAFAF8_FILL0_wght400_GRAD0_op
 import CrossIcon from "../assets/images/close_32dp_D17557_FILL0_wght400_GRAD0_opsz40.png";
 
 export default function IngredientsList(props) {
-  const [isEditing, setIsEditing] = React.useState(false);
+  const ingredientListItems = props.ingredients.map((ingredient, index) => {
+    function removeItem() {
+      props.setIngredients((prev) => prev.filter((_, i) => i !== index));
+    }
 
-  const ingredientListItems = props.ingredients.map((ingredient) =>
-    isEditing ? (
+    return props.isEditing ? (
       <li className="cross-list" key={ingredient}>
-        <button className="cross-button">
+        <button className="cross-button" onClick={removeItem}>
           <img className="cross-icon" src={CrossIcon} alt="Cross Icon" />
         </button>
         {ingredient}
@@ -23,11 +25,11 @@ export default function IngredientsList(props) {
         </span>
         {ingredient}
       </li>
-    )
-  );
+    );
+  });
 
   function handleEditBtn() {
-    setIsEditing((prev) => !prev);
+    props.setIsEditing((prev) => !prev);
   }
 
   return (
@@ -35,7 +37,7 @@ export default function IngredientsList(props) {
       <h2>
         Ingredients on hand:
         <button className="edit-button" onClick={handleEditBtn}>
-          <img src={isEditing ? CheckIcon : EditIcon} alt="Edit Icon" />
+          <img src={props.isEditing ? CheckIcon : EditIcon} alt="Edit Icon" />
         </button>
       </h2>
 
@@ -58,8 +60,13 @@ export default function IngredientsList(props) {
               height={50}
             />
           ) : (
-            <button onClick={props.getRecipe} className="get-recipe-button">
-              {" "}
+            <button
+              onClick={() => {
+                props.stopEditing();
+                props.getRecipe();
+              }}
+              className="get-recipe-button"
+            >
               Get a recipe
             </button>
           )}
