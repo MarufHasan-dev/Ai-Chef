@@ -257,6 +257,12 @@ ol {
   background-color: #ee815d;
 }
 
+.add-msg {
+  margin-top: 25px;
+  color: var(--add-button-border);
+  font-weight: 400;
+}
+
 /* RESPONSE AREA  */
 
 .suggested-recipe {

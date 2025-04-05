@@ -71,7 +71,9 @@ export default function IngredientsList(props) {
             </button>
           )}
         </div>
-      ) : null}
+      ) : (
+        <h4 className="add-msg">Add at least four ingredients.</h4>
+      )}
     </section>
   );
 }
