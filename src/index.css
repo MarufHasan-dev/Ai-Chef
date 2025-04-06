@@ -113,6 +113,7 @@ ol {
 
 .overlay {
   background-color: #6465689e;
+  backdrop-filter: blur(4px);
   position: absolute;
   top: 0;
   left: 0;
@@ -128,7 +129,7 @@ ol {
   position: relative;
   background-color: var(--bg-color);
   color: var(--ingredient-list);
-  border: 2px solid var(--add-button-border);
+  border: 2px dashed var(--add-button-border);
   max-width: 500px;
   margin: 0 15px;
   padding: 30px 40px;
