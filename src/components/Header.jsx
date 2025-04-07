@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header className="header">
       {popup ? (
-        <div className="overlay">
+        <div className="help-box">
           <p className="description">
             This is a recipe generation app. You can get a recipe with the
             ingredients you have. Just add them and click "Get a recipe." You
@@ -46,6 +46,11 @@ export default function Header() {
               <img src={CrossIcon} alt="close" />
             </button>
           </p>
+          <div
+            className="overlay"
+            aria-hidden="true"
+            onClick={() => setPopup(false)}
+          ></div>
         </div>
       ) : null}
       <img className="icon" src={LogoIcon} alt="Chef icon" />
