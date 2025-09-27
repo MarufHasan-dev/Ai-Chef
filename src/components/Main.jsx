@@ -1,16 +1,10 @@
 import React from "react";
 import IngredientsList from "./IngredientsList";
-import ClaudeRecipe from "./ClaudeRecipe";
-import { getRecipeFromHuggingface } from "../services/huggingFace";
+import AiRecipe from "./AiRecipe";
+import { getRecipeFromGemini } from "../services/gemini";
 
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    // "chicken",
-    // "all the main spices",
-    // "corn",
-    // "heavy cream",
-    // "pasta",
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
 
   const [fetching, setFetching] = React.useState(false);
   const [recipe, setRecipe] = React.useState("");
@@ -34,7 +28,7 @@ export default function Main() {
 
   async function getRecipe() {
     setFetching(true);
-    const recipeMarkdown = await getRecipeFromHuggingface(ingredients);
+    const recipeMarkdown = await getRecipeFromGemini(ingredients);
     setFetching(false);
     setRecipe(recipeMarkdown);
   }
@@ -66,7 +60,7 @@ export default function Main() {
           stopEditing={stopEditing}
         />
       ) : null}
-      {recipe ? <ClaudeRecipe recipe={recipe} /> : null}
+      {recipe ? <AiRecipe recipe={recipe} /> : null}
     </main>
   );
 }

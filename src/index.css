@@ -55,6 +55,13 @@ ol {
   list-style-position: inside;
 }
 
+hr {
+  border: none;
+  background-color: #c2c4c6;
+  height: 1px;
+  margin: 25px 0;
+}
+
 .container {
   max-width: 594px;
   margin: 0 auto;
@@ -343,7 +350,7 @@ ol {
 
 .suggested-recipe-container ul li,
 .suggested-recipe-container ol li {
-  margin-bottom: 8px;
+  margin-bottom: 18px;
   margin-left: 15px;
 }
 
@@ -352,16 +359,25 @@ ol {
   font-family: "Inter", serif;
   font-size: 18px;
   line-height: 28px;
-  margin: 24px 0 48px;
+  margin: 24px 0 24px;
 }
 
 .suggested-recipe-container > h3 {
   padding: 0 0 28px;
-  color: var(--text-color);
 }
 
 .suggested-recipe-container > h4 {
   padding: 10px 0 15px;
+}
+
+.suggested-recipe-container > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ingredient-list);
+  line-height: 1.5;
 }
 
 .spinner {

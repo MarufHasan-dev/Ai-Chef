@@ -1,6 +1,6 @@
 import Markdown from "react-markdown";
 
-export default function ClaudeRecipe(props) {
+export default function AiRecipe(props) {
   return (
     <section
       className="suggested-recipe-container container"
